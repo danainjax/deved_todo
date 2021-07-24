@@ -12,6 +12,8 @@ console.log(todoList)
 
 //Event listeners
 todoButton.addEventListener('click', addTodo)
+todoList.addEventListener('click', deleteCheck);
+
 
 
 
@@ -40,4 +42,14 @@ function addTodo (event) {
      //append to list
     todoList.appendChild(todoDiv);
      todoInput.value = " "
+ }
+
+ function deleteCheck(e) {
+     console.log(e.target);
+     const item = e.target;
+     //delete todo
+     console.log(item.classList[0])
+     if (item.classList[0] === 'trash-btn') {
+         item.remove();
+     }
  }
