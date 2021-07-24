@@ -50,6 +50,19 @@ function addTodo (event) {
      //delete todo
      console.log(item.classList[0])
      if (item.classList[0] === 'trash-btn') {
-         item.remove();
+         const todo = item.parentElement;
+         todo.classList.add("fall")
+         todo.addEventListener('transitionend', function() {
+            todo.remove();
+         })
+        
+     }
+     if (item.classList[0] === 'complete-btn'){
+        //  console.log('check off the item')
+        //  const trashB = item.nextElementSibling;
+        //  console.log(trashB)
+        //  trashB.remove();
+        const todo = item.parentElement;
+        todo.classList.toggle("completed");
      }
  }
